@@ -1052,6 +1052,15 @@ function Dashboard() {
     addToast(message)
   }, [addToast])
 
+  const mobileTabs: { id: Tab; icon: string; label: string }[] = [
+    { id: 'overview', icon: '◈', label: 'Översikt' },
+    { id: 'agent', icon: '⚡', label: 'Agent' },
+    { id: 'subscriptions', icon: '📱', label: 'Prenumerationer' },
+    { id: 'loans', icon: '🏦', label: 'Lån' },
+    { id: 'savings', icon: '💰', label: 'Sparande' },
+    { id: 'spending', icon: '📊', label: 'Utgifter' },
+  ]
+
   return (
     <div className="dashboard-wrapper" style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
       <Sidebar tab={tab} setTab={setTab} collapsed={collapsed} setCollapsed={setCollapsed} />
@@ -1063,6 +1072,21 @@ function Dashboard() {
         {tab === 'savings' && <SavingsTab setModal={setModal} />}
         {tab === 'spending' && <SpendingTab />}
       </main>
+
+      <div className="mobile-tab-bar" role="tablist" aria-label="Dashboard navigation">
+        {mobileTabs.map(item => (
+          <button
+            key={item.id}
+            type="button"
+            className={tab === item.id ? 'mobile-tab active' : 'mobile-tab'}
+            onClick={() => setTab(item.id)}
+            aria-current={tab === item.id ? 'page' : undefined}
+          >
+            <span>{item.icon}</span>
+            <span>{item.label}</span>
+          </button>
+        ))}
+      </div>
 
       {/* Modals */}
       {modal === 'savings' && (
