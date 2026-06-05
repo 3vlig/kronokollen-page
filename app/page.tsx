@@ -675,15 +675,12 @@ function OverviewTab({ setModal, dismissedActions, onDismiss }: { setModal: (m: 
       {/* Stats grid */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
         {[
-          { label: 'Totalt sparande', value: fmtCurrency(totalSavings), icon: '💰', color: 'var(--accent)', sub: '+2,3% denna månaden' },
-          { label: 'Månadsutgifter', value: fmtCurrency(totalSub + totalLoans), icon: '📤', color: 'var(--text-primary)', sub: `${SUBSCRIPTIONS.length} prenumerationer` },
-          { label: 'Lånekostnad', value: fmtCurrency(totalLoans), icon: '🏦', color: 'var(--warn)', sub: `${LOANS.length} aktiva lån` },
-          { label: 'Möjlig besparing', value: fmtCurrency(potentialSaving) + '/mån', icon: '⚡', color: 'var(--accent)', sub: '5 åtgärder tillgängliga' },
+          { label: 'Totalt sparande', value: fmtCurrency(totalSavings), color: 'var(--accent)', sub: '+2,3% denna månaden' },
+          { label: 'Månadsutgifter', value: fmtCurrency(totalSub + totalLoans), color: 'var(--text-primary)', sub: `${SUBSCRIPTIONS.length} prenumerationer` },
+          { label: 'Lånekostnad', value: fmtCurrency(totalLoans), color: 'var(--warn)', sub: `${LOANS.length} aktiva lån` },
+          { label: 'Möjlig besparing', value: fmtCurrency(potentialSaving) + '/mån', color: 'var(--accent)', sub: '5 åtgärder tillgängliga' },
         ].map(stat => (
           <div key={stat.label} className="card" style={{ padding: '1.25rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
-              <span style={{ fontSize: '1.4rem' }}>{stat.icon}</span>
-            </div>
             <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.35rem', color: stat.color, letterSpacing: '-0.03em', marginBottom: '0.25rem' }}>{stat.value}</div>
             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.2rem', fontFamily: 'var(--font-display)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{stat.label}</div>
             <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{stat.sub}</div>
