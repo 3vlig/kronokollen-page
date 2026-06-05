@@ -466,7 +466,7 @@ function LandingScreen({ onStart }: { onStart: () => void }) {
       {/* Grid background */}
       <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)', backgroundSize: '60px 60px', opacity: 0.4 }} />
       {/* Glow */}
-      <div style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)', width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(0,229,160,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)', width: 'min(600px, 100%)', height: 'min(600px, 100%)', borderRadius: '50%', background: 'radial-gradient(circle, rgba(0,229,160,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
       
       <div style={{ position: 'relative', textAlign: 'center', maxWidth: 640, animation: 'fadeUp 0.7s ease' }}>
         {/* Logo */}
@@ -605,7 +605,7 @@ function Sidebar({ tab, setTab, collapsed, setCollapsed }: { tab: Tab; setTab: (
   ]
 
   return (
-    <aside style={{
+    <aside className="dashboard-sidebar" style={{
       width: collapsed ? 64 : 240,
       background: 'var(--bg-surface)',
       borderRight: '1px solid var(--border)',
@@ -642,14 +642,14 @@ function Sidebar({ tab, setTab, collapsed, setCollapsed }: { tab: Tab; setTab: (
 
       {/* Agent status */}
       {!collapsed && (
-        <div style={{ padding: '0.75rem', background: 'var(--accent-dim)', border: '1px solid var(--accent-glow)', borderRadius: 'var(--radius-md)', marginTop: '1rem' }}>
+        <div className="agent-status" style={{ padding: '0.75rem', background: 'var(--accent-dim)', border: '1px solid var(--accent-glow)', borderRadius: 'var(--radius-md)', marginTop: '1rem' }}>
           <AgentBadge active />
           <div style={{ marginTop: '0.4rem', fontSize: '0.75rem', color: 'var(--text-secondary)' }}>5 möjligheter identifierade</div>
         </div>
       )}
 
       {/* Collapse toggle */}
-      <button onClick={() => setCollapsed(!collapsed)} style={{ marginTop: '1rem', padding: '0.5rem', background: 'var(--bg-elevated)', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '0.8rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <button className="sidebar-toggle" onClick={() => setCollapsed(!collapsed)} style={{ marginTop: '1rem', padding: '0.5rem', background: 'var(--bg-elevated)', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '0.8rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {collapsed ? '→' : '←'}
       </button>
     </aside>
@@ -1056,9 +1056,9 @@ function Dashboard() {
   }, [addToast])
 
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
+    <div className="dashboard-wrapper" style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
       <Sidebar tab={tab} setTab={setTab} collapsed={collapsed} setCollapsed={setCollapsed} />
-      <main style={{ flex: 1, overflow: 'auto', background: 'var(--bg-base)' }}>
+      <main className="dashboard-main" style={{ flex: 1, overflow: 'auto', background: 'var(--bg-base)' }}>
         {tab === 'overview' && <OverviewTab setModal={setModal} dismissedActions={dismissedActions} onDismiss={id => setDismissedActions(d => [...d, id])} />}
         {tab === 'agent' && <AgentTab setModal={setModal} dismissedActions={dismissedActions} doneActions={doneActions} onDismiss={id => setDismissedActions(d => [...d, id])} />}
         {tab === 'subscriptions' && <SubscriptionsTab setModal={setModal} />}
