@@ -119,6 +119,15 @@ const AGENT_ACTIONS: AgentAction[] = [
   },
 ]
 
+const DASHBOARD_NAV_ITEMS = [
+  { id: 'overview', icon: '◈', label: 'Översikt' },
+  { id: 'agent', icon: '⚡', label: 'Agent', badge: 5 },
+  { id: 'subscriptions', icon: '📱', label: 'Prenumerationer' },
+  { id: 'loans', icon: '🏦', label: 'Lån' },
+  { id: 'savings', icon: '💰', label: 'Sparande' },
+  { id: 'spending', icon: '📊', label: 'Utgifter' },
+] as const
+
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
 const fmt = (n: number, dec = 0) =>
@@ -1035,7 +1044,6 @@ function SpendingTab() {
 
 function Dashboard() {
   const [tab, setTab] = useState<Tab>('overview')
-  const [collapsed, setCollapsed] = useState(false)
   const [modal, setModal] = useState<ModalType>(null)
   const [dismissedActions, setDismissedActions] = useState<string[]>([])
   const [doneActions, setDoneActions] = useState<string[]>([])
@@ -1052,29 +1060,47 @@ function Dashboard() {
     addToast(message)
   }, [addToast])
 
-  const mobileTabs: { id: Tab; icon: string; label: string }[] = [
-    { id: 'overview', icon: '◈', label: 'Översikt' },
-    { id: 'agent', icon: '⚡', label: 'Agent' },
-    { id: 'subscriptions', icon: '📱', label: 'Prenumerationer' },
-    { id: 'loans', icon: '🏦', label: 'Lån' },
-    { id: 'savings', icon: '💰', label: 'Sparande' },
-    { id: 'spending', icon: '📊', label: 'Utgifter' },
-  ]
+  const navItems = DASHBOARD_NAV_ITEMS
 
   return (
-    <div className="dashboard-wrapper" style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
-      <Sidebar tab={tab} setTab={setTab} collapsed={collapsed} setCollapsed={setCollapsed} />
-      <main className="dashboard-main" style={{ flex: 1, overflow: 'auto', background: 'var(--bg-base)' }}>
-        {tab === 'overview' && <OverviewTab setModal={setModal} dismissedActions={dismissedActions} onDismiss={id => setDismissedActions(d => [...d, id])} />}
-        {tab === 'agent' && <AgentTab setModal={setModal} dismissedActions={dismissedActions} doneActions={doneActions} onDismiss={id => setDismissedActions(d => [...d, id])} />}
-        {tab === 'subscriptions' && <SubscriptionsTab setModal={setModal} />}
-        {tab === 'loans' && <LoansTab setModal={setModal} />}
-        {tab === 'savings' && <SavingsTab setModal={setModal} />}
-        {tab === 'spending' && <SpendingTab />}
-      </main>
+    <div className="dashboard-layout">
+      <header className="dashboard-header">
+        <div className="header-brand">
+          <div className="brand-icon">K</div>
+          <div>
+            <div className="brand-title">kronokollen</div>
+            <div className="brand-subtitle">Din ekonomiagent</div>
+          </div>
+        </div>
+
+        <nav className="header-nav" aria-label="Dashboard navigation">
+          {navItems.map(item => (
+            <button
+              key={item.id}
+              type="button"
+              className={tab === item.id ? 'header-nav-item active' : 'header-nav-item'}
+              onClick={() => setTab(item.id)}
+            >
+              <span>{item.icon}</span>
+              <span>{item.label}</span>
+            </button>
+          ))}
+        </nav>
+      </header>
+
+      <div className="dashboard-shell">
+        <main className="dashboard-main">
+          {tab === 'overview' && <OverviewTab setModal={setModal} dismissedActions={dismissedActions} onDismiss={id => setDismissedActions(d => [...d, id])} />}
+          {tab === 'agent' && <AgentTab setModal={setModal} dismissedActions={dismissedActions} doneActions={doneActions} onDismiss={id => setDismissedActions(d => [...d, id])} />}
+          {tab === 'subscriptions' && <SubscriptionsTab setModal={setModal} />}
+          {tab === 'loans' && <LoansTab setModal={setModal} />}
+          {tab === 'savings' && <SavingsTab setModal={setModal} />}
+          {tab === 'spending' && <SpendingTab />}
+        </main>
+      </div>
 
       <div className="mobile-tab-bar" role="tablist" aria-label="Dashboard navigation">
-        {mobileTabs.map(item => (
+        {navItems.map(item => (
           <button
             key={item.id}
             type="button"

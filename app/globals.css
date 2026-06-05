@@ -509,8 +509,107 @@ input::placeholder { color: var(--text-muted); }
 .agent-typing span:nth-child(3) { animation-delay: 0.4s; }
 
 /* Responsive layout */
-.dashboard-wrapper {
+.dashboard-layout {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  width: min(1180px, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.header-nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+}
+
+.header-nav-item:hover,
+.header-nav-item.active {
+  background: var(--bg-card);
+  border-color: var(--border-bright);
+  color: var(--text-primary);
+}
+
+.header-nav-item.active {
+  color: var(--accent);
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: #080b0f;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 900;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: -0.03em;
+}
+
+.brand-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.dashboard-shell {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.dashboard-main {
+  width: 100%;
+  min-height: 100vh;
+  overflow: auto;
+  background: var(--bg-base);
+  max-width: 1180px;
+}
+
+
+.drawer-nav-item.active {
+  border: 1px solid var(--accent);
+  background: var(--accent-dim);
+  color: var(--accent);
 }
 
 .mobile-tab-bar {
@@ -524,7 +623,7 @@ input::placeholder { color: var(--text-muted); }
   align-items: center;
   justify-content: center;
   gap: 0.25rem;
-  padding: 0.75rem 0.5rem;
+  padding: 0.75rem 0.45rem;
   background: transparent;
   border: none;
   color: var(--text-secondary);
@@ -557,14 +656,11 @@ input::placeholder { color: var(--text-muted); }
     width: min(92vw, 100%) !important;
   }
 
-  .dashboard-wrapper {
+  .dashboard-layout {
     flex-direction: column !important;
     height: auto !important;
     overflow: visible !important;
-  }
-
-  .dashboard-wrapper .dashboard-sidebar {
-    display: none !important;
+    padding-bottom: 92px !important;
   }
 
   .mobile-tab-bar {
@@ -583,60 +679,32 @@ input::placeholder { color: var(--text-muted); }
     z-index: 20;
   }
 
-  .dashboard-wrapper {
-    padding-bottom: 72px !important;
-  }
-
-  .dashboard-wrapper .dashboard-main {
+  .dashboard-layout .dashboard-main {
     padding-top: 0.75rem !important;
   }
 
-  .dashboard-wrapper .dashboard-main > div {
+  .dashboard-layout .dashboard-main > div {
     padding: 1rem !important;
   }
 
-  .dashboard-wrapper .dashboard-main .card,
-  .dashboard-wrapper .dashboard-main .action-card {
+  .dashboard-layout .dashboard-main .card,
+  .dashboard-layout .dashboard-main .action-card {
     margin: 0 0 1rem !important;
     padding: 1rem !important;
   }
 
-  .dashboard-wrapper .dashboard-main .badge {
+  .dashboard-layout .dashboard-main .badge {
     font-size: 0.65rem !important;
   }
 
-  .dashboard-wrapper .dashboard-main .toast-container {
+  .dashboard-layout .dashboard-main .toast-container {
     right: 0.75rem !important;
     bottom: 0.75rem !important;
     left: auto !important;
   }
 
-  .grid-bg {
-    background-size: 30px 30px !important;
-  }
-
-  .dashboard-wrapper .dashboard-main {
-    padding-top: 0.75rem !important;
-  }
-
-  .dashboard-wrapper .dashboard-main > div {
-    padding: 1rem !important;
-  }
-
-  .dashboard-wrapper .dashboard-main .card,
-  .dashboard-wrapper .dashboard-main .action-card {
-    margin: 0 0 1rem !important;
-    padding: 1rem !important;
-  }
-
-  .dashboard-wrapper .dashboard-main .badge {
-    font-size: 0.65rem !important;
-  }
-
-  .dashboard-wrapper .dashboard-main .toast-container {
-    right: 0.75rem !important;
-    bottom: 0.75rem !important;
-    left: auto !important;
+  .header-nav {
+    display: none !important;
   }
 
   .grid-bg {
