@@ -536,7 +536,7 @@ function BankIDScreen({ onComplete }: { onComplete: () => void }) {
       <div style={{ width: 'min(440px, 100%)', animation: 'fadeUp 0.5s ease' }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-            <div style={{ width: 32, height: 32, borderRadius: 8, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, color: '#080b0f', fontFamily: 'var(--font-display)', fontSize: '1rem' }}>F</div>
+            <div style={{ width: 32, height: 32, borderRadius: 8, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, color: '#080b0f', fontFamily: 'var(--font-display)', fontSize: '1rem' }}>K </div>
             <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.04em' }}>kronokollen</span>
           </div>
         </div>
@@ -620,7 +620,7 @@ function Sidebar({ tab, setTab, collapsed, setCollapsed }: { tab: Tab; setTab: (
     }}>
       {/* Logo */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0 0.25rem', marginBottom: '2rem', overflow: 'hidden' }}>
-        <div style={{ width: 32, height: 32, borderRadius: 8, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, color: '#080b0f', fontFamily: 'var(--font-display)', fontSize: '1rem', flexShrink: 0 }}>F</div>
+        <div style={{ width: 32, height: 32, borderRadius: 8, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, color: '#080b0f', fontFamily: 'var(--font-display)', fontSize: '1rem', flexShrink: 0 }}>K</div>
         {!collapsed && <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.1rem', letterSpacing: '-0.04em' }}>kronokollen</span>}
       </div>
 
