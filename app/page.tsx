@@ -237,7 +237,7 @@ function SavingsModal({ onClose, onConfirm }: { onClose: () => void; onConfirm: 
             <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
               <div style={{ fontSize: '3rem', marginBottom: '0.75rem' }}>🔐</div>
               <h2 style={{ marginBottom: '0.5rem' }}>Bekräfta med BankID</h2>
-              <p style={{ color: 'var(--text-secondary)' }}>Signera för att ge Finra tillstånd att flytta dina 85 000 kr till {BEST_SAVINGS[chosen].bank}.</p>
+              <p style={{ color: 'var(--text-secondary)' }}>Signera för att ge Kronokollen tillstånd att flytta dina 85 000 kr till {BEST_SAVINGS[chosen].bank}.</p>
             </div>
             <div style={{ background: 'var(--bg-elevated)', borderRadius: 'var(--radius-md)', padding: '1rem', marginBottom: '1.5rem', fontFamily: 'var(--font-body)', fontSize: '0.82rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
@@ -377,7 +377,7 @@ function MortgageModal({ onClose, onConfirm }: { onClose: () => void; onConfirm:
           <>
             <div style={{ marginBottom: '1.5rem' }}>
               <h2 style={{ fontSize: '1.3rem', marginBottom: '0.75rem' }}>Bekräfta bolåneflytt</h2>
-              <p style={{ color: 'var(--text-secondary)' }}>Finra hanterar hela processen, inklusive kontakt med banker och pappersarbete.</p>
+              <p style={{ color: 'var(--text-secondary)' }}>Kronokollen hanterar hela processen, inklusive kontakt med banker och pappersarbete.</p>
             </div>
             <div style={{ background: 'var(--bg-elevated)', borderRadius: 'var(--radius-md)', padding: '1rem', marginBottom: '1.5rem' }}>
               {[
@@ -471,8 +471,8 @@ function LandingScreen({ onStart }: { onStart: () => void }) {
       <div style={{ position: 'relative', textAlign: 'center', maxWidth: 640, animation: 'fadeUp 0.7s ease' }}>
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginBottom: '2.5rem' }}>
-          <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 24px var(--accent-glow)', fontSize: '1.2rem', fontWeight: 900, color: '#080b0f', fontFamily: 'var(--font-display)' }}>F</div>
-          <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.4rem', letterSpacing: '-0.04em' }}>finra</span>
+          <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 24px var(--accent-glow)', fontSize: '1.2rem', fontWeight: 900, color: '#080b0f', fontFamily: 'var(--font-display)' }}>K</div>
+          <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.4rem', letterSpacing: '-0.04em' }}>kronokollen</span>
           <AgentBadge active />
         </div>
 
@@ -481,7 +481,7 @@ function LandingScreen({ onStart }: { onStart: () => void }) {
           <span style={{ color: 'var(--accent)', fontStyle: 'italic', fontFamily: 'var(--font-serif)' }}>ekonomiagent</span>
         </h1>
         <p style={{ fontSize: '1.05rem', color: 'var(--text-secondary)', maxWidth: 480, margin: '0 auto 2.5rem', lineHeight: 1.7 }}>
-          Finra övervakar dina prenumerationer, lån och sparkonton — och agerar på dina vägnar. Flytta bolån, optimera sparande, avsluta abonnemang. Automatiskt.
+          Kronokollen övervakar dina prenumerationer, lån och sparkonton — och agerar på dina vägnar. Flytta bolån, optimera sparande, avsluta abonnemang. Automatiskt.
         </p>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center', marginBottom: '2.5rem' }}>
@@ -537,7 +537,7 @@ function BankIDScreen({ onComplete }: { onComplete: () => void }) {
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
             <div style={{ width: 32, height: 32, borderRadius: 8, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, color: '#080b0f', fontFamily: 'var(--font-display)', fontSize: '1rem' }}>F</div>
-            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.04em' }}>finra</span>
+            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, letterSpacing: '-0.04em' }}>kronokollen</span>
           </div>
         </div>
 
@@ -547,7 +547,7 @@ function BankIDScreen({ onComplete }: { onComplete: () => void }) {
               <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🔐</div>
               <h2 style={{ fontSize: '1.4rem', marginBottom: '0.75rem' }}>Logga in med BankID</h2>
               <p style={{ color: 'var(--text-secondary)', marginBottom: '1.75rem', lineHeight: 1.6 }}>
-                Finra använder BankID för att säkert koppla ihop med dina banker och automatiskt analysera din ekonomi.
+                Kronokollen använder BankID för att säkert koppla ihop med dina banker och automatiskt analysera din ekonomi.
               </p>
               <div style={{ background: 'var(--bg-elevated)', borderRadius: 'var(--radius-md)', padding: '1rem', marginBottom: '1.75rem', fontSize: '0.82rem', textAlign: 'left' }}>
                 {['✓ Läsbehörighet till dina konton', '✓ Säker krypterad anslutning (PSD2)', '✓ Du godkänner varje åtgärd', '✓ Vi säljer aldrig din data'].map(i => (
@@ -564,7 +564,7 @@ function BankIDScreen({ onComplete }: { onComplete: () => void }) {
             <>
               <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📲</div>
               <h2 style={{ marginBottom: '0.75rem' }}>Bekräfta i BankID-appen</h2>
-              <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>Öppna BankID och godkänn anslutningen till Finra.</p>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>Öppna BankID och godkänn anslutningen till Kronokollen.</p>
               <div className="progress-bar" style={{ marginBottom: '0.5rem' }}>
                 <div className="progress-fill" style={{ width: `${progress}%` }} />
               </div>
@@ -621,7 +621,7 @@ function Sidebar({ tab, setTab, collapsed, setCollapsed }: { tab: Tab; setTab: (
       {/* Logo */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0 0.25rem', marginBottom: '2rem', overflow: 'hidden' }}>
         <div style={{ width: 32, height: 32, borderRadius: 8, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, color: '#080b0f', fontFamily: 'var(--font-display)', fontSize: '1rem', flexShrink: 0 }}>F</div>
-        {!collapsed && <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.1rem', letterSpacing: '-0.04em' }}>finra</span>}
+        {!collapsed && <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.1rem', letterSpacing: '-0.04em' }}>kronokollen</span>}
       </div>
 
       {/* Nav */}

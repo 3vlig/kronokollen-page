@@ -3,11 +3,11 @@ import './globals.css'
 import ThemeToggle from './components/ThemeToggle'
 
 export const metadata: Metadata = {
-  title: 'Finra — Your Personal Economy Agent',
+  title: 'Kronokollen — Your Personal Economy Agent',
   description:
     'AI-powered personal finance agent. Monitors your subscriptions, loans, savings and acts on your behalf — with your permission.',
   keywords: ['personal finance', 'economy agent', 'savings', 'mortgage', 'subscriptions', 'BankID'],
-  authors: [{ name: 'Finra' }],
+  authors: [{ name: 'Kronokollen' }],
   robots: 'noindex',
   icons: {
     icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23080b0f'/><path d='M8 22 L16 10 L24 22' stroke='%2300e5a0' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/><circle cx='16' cy='10' r='2' fill='%2300e5a0'/></svg>",
